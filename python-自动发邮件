@@ -1,0 +1,27 @@
+import smtplib
+from email.mime.text import MIMEText
+from email.header import Header
+
+from_addr = '3112452352@qq.com'
+#from_addr = input('请输入发件邮箱：')
+password = 'edisevlcptlwdhea'
+#password = input('请输入邮箱授权码：')
+to_addrs = ['744398731@qq.com','17771422961@163.com']
+#to_addr = input('请输入收件邮箱：')
+smtp_server ='smtp.qq.com'
+text = '''今天也是爱你的一天！
+​    好好学习 天天向上
+
+人生苦短，我用Python
+'''
+msg = MIMEText(text,'plain','utf-8')
+msg['From'] = Header(from_addr)
+msg['To'] = Header(','.join(to_addrs))
+msg['Subject'] = Header('python test')
+
+server = smtplib.SMTP_SSL(host='smtp.qq.com')
+server.connect(smtp_server,465)
+server.login(from_addr, password) 
+server.sendmail(from_addr,to_addrs,msg.as_string()) 
+server.quit()
+print('邮件发送成功！')
