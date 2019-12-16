@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>红橙黄绿蓝</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		#screen{
+			height: 500px;
+		}
+		li{
+			float: left;
+			width: 100px;
+			height: 30px;
+			border-radius: 10px;
+			background:lightseagreen;
+			text-align: center;
+			line-height: 30px;
+			color:black;
+		}
+		ul li:nth-child(1){
+			background:red;
+		}
+		ul li:nth-child(2){
+			background:orange;
+		}
+		ul li:nth-child(3){
+			background:yellow;
+		}
+		ul li:nth-child(4){
+			background:green;
+		}
+		ul li:nth-child(5){
+			background:blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="screen"></div>
+	<ul id="ul">
+		<li>红色</li>
+		<li>橙色</li>
+		<li>黄色</li>
+		<li>绿色</li>
+		<li>蓝色</li>
+	</ul>
+	<script>
+		var ul = document.getElementById('ul');
+		var screen = document.getElementById('screen');
+		ul.addEventListener('click', function(e){
+			var that = e.target;
+			console.log(e);
+			if(that.innerHTML == "红色"){
+				screen.style.background = "red";
+			}else if(that.innerHTML == "橙色"){
+				screen.style.background = "orange";
+			}else if(that.innerHTML == "黄色"){
+				screen.style.background = "yellow";
+			}else if(that.innerHTML == "绿色"){
+				screen.style.background = "green";
+			}else{
+				screen.style.background = "blue";
+			}
+		});
+	</script>
+</body>
+</html>
